@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="js/script.js"></script>
+    <script defer src="js/test.js"></script>
+  </head>
+  <body>
+    <div class="flex">
+      <div class="block__flex">
+        <input class="margin-b" type="text" placeholder=" Навзание" />
+        <select class="margin-b" id="">
+          <option value="Трава">Трава</option>
+          <option value="Дерево">Дерево</option>
+        </select>
+        <input class="margin-b" type="text" placeholder=" Краткое описание" />
+        <input class="margin-b" type="number" placeholder=" Возраст" />
+
+        <div class="margin-b" class="edible">
+          <span>Съёдобная</span><input type="checkbox" />
+        </div>
+        <select class="margin-b" id="">
+          <option value="Трава">2-5м</option>
+          <option value="Дерево">1-2м</option>
+          <option value="Дерево">0.3-1м</option>
+        </select>
+
+        <button id="save" type="submit">Сохранить</button>
+      </div>
+      <table class="table">
+        Трава
+        <tr>
+          <th>Название</th>
+          <th>Вид</th>
+          <th>Описание</th>
+          <th>Возраст</th>
+          <th>Размер травы</th>
+          <th>Съёдобное</th>
+          <th>Удалить</th>
+        </tr>
+        <tr>
+          <td>34,5</td>
+          <td>3,5</td>
+          <td>36</td>
+          <td>36</td>
+          <td>36</td>
+          <td>23</td>
+          <td>delete</td>
+        </tr>
+      </table>
+      <table class="table">
+        Дерево
+        <tr>
+          <th>Название</th>
+          <th>Вид</th>
+          <th>Описание</th>
+          <th>Возраст</th>
+          <th>Высота</th>
+          <th>Структурв</th>
+        </tr>
+        <tr>
+          <td>34,5</td>
+          <td>3,5</td>
+          <td>3,5</td>
+          <td>3,5</td>
+          <td>36</td>
+          <td>23</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
