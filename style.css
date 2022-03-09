@@ -55,3 +55,12 @@ tr td:last-child {
 .margin-b {
   margin-bottom: 10px;
 }
+.GrassPlant {
+  display: none;
+}
+.Tree {
+  display: none;
+}
+.Animal {
+  display: none;
+}

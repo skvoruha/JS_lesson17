@@ -7,70 +7,108 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
     <script defer src="js/script.js"></script>
-    <script defer src="js/test.js"></script>
   </head>
   <body>
     <div class="flex">
       <div class="block__flex">
-        <input class="margin-b" type="text" placeholder=" Навзание" />
-        <select class="margin-b" id="">
-          <option value="Трава">Трава</option>
-          <option value="Дерево">Дерево</option>
+        <input
+          name="name"
+          class="margin-b"
+          type="text"
+          placeholder="Навзание"
+        />
+        <select class="margin-b" name="selectedClass">
+          <option value="GrassPlant">Трава</option>
+          <option value="Tree">Дерево</option>
+          <option value="Animal">Животное</option>
         </select>
-        <input class="margin-b" type="text" placeholder=" Краткое описание" />
-        <input class="margin-b" type="number" placeholder=" Возраст" />
-
-        <div class="margin-b" class="edible">
+        <input
+          name="description"
+          class="margin-b"
+          type="text"
+          placeholder=" Краткое описание"
+        />
+        <input
+          name="age"
+          class="margin-b"
+          type="number"
+          placeholder=" Возраст"
+        />
+        <!-- для травы -->
+        <div class="margin-b edible GrassPlant">
           <span>Съёдобная</span><input type="checkbox" />
         </div>
-        <select class="margin-b" id="">
-          <option value="Трава">2-5м</option>
-          <option value="Дерево">1-2м</option>
-          <option value="Дерево">0.3-1м</option>
+        <select class="margin-b GrassPlant" id="">
+          <option value="2-5">2-5м</option>
+          <option value="1-2">1-2м</option>
+          <option value="0.3-1">0.3-1м</option>
         </select>
-
+        <!-- для дерева -->
+        <input type="number" class="margin-b Tree" />
+        <select class="margin-b Tree">
+          <option value="Хвойные деревья">Хвойные деревья</option>
+          <option value="Сосновые">Сосновые</option>
+          <option value="Кипарисовые">Кипарисовые</option>
+          <option value="Плодовые деревья">Плодовые деревья</option>
+          <option value="	Семейство Розовые">Семейство Розовые</option>
+          <option value="Род Слива">Род Слива</option>
+          <option value="Шелковица">Шелковица</option>
+        </select>
+        <!-- для животных -->
+        <div class="margin-b edible Tree">
+          <span>Доманее животное?</span><input type="checkbox" />
+        </div>
+        <select class="margin-b Tree">
+          <option value="травоядное">травоядное</option>
+          <option value="всеядное">всеядное</option>
+          <option value="плтоядное">плтоядное</option>
+        </select>
         <button id="save" type="submit">Сохранить</button>
       </div>
-      <table class="table">
-        Трава
-        <tr>
-          <th>Название</th>
-          <th>Вид</th>
-          <th>Описание</th>
-          <th>Возраст</th>
-          <th>Размер травы</th>
-          <th>Съёдобное</th>
-          <th>Удалить</th>
-        </tr>
-        <tr>
-          <td>34,5</td>
-          <td>3,5</td>
-          <td>36</td>
-          <td>36</td>
-          <td>36</td>
-          <td>23</td>
-          <td>delete</td>
-        </tr>
-      </table>
-      <table class="table">
-        Дерево
-        <tr>
-          <th>Название</th>
-          <th>Вид</th>
-          <th>Описание</th>
-          <th>Возраст</th>
-          <th>Высота</th>
-          <th>Структурв</th>
-        </tr>
-        <tr>
-          <td>34,5</td>
-          <td>3,5</td>
-          <td>3,5</td>
-          <td>3,5</td>
-          <td>36</td>
-          <td>23</td>
-        </tr>
-      </table>
+      <div class="block">
+        <table class="table">
+          Трава
+          <tr>
+            <th>Название</th>
+            <th>Вид</th>
+            <th>Описание</th>
+            <th>Возраст</th>
+            <th>Размер травы</th>
+            <th>Съёдобное</th>
+            <th>Удалить</th>
+          </tr>
+          <tr>
+            <td>34,5</td>
+            <td>3,5</td>
+            <td>36</td>
+            <td>36</td>
+            <td>36</td>
+            <td>23</td>
+            <td>delete</td>
+          </tr>
+        </table>
+        <table class="table">
+          Дерево
+          <tr>
+            <th>Название</th>
+            <th>Вид</th>
+            <th>Описание</th>
+            <th>Возраст</th>
+            <th>Высота</th>
+            <th>Структурв</th>
+            <th>Удалить</th>
+          </tr>
+          <tr>
+            <td>34,5</td>
+            <td>3,5</td>
+            <td>3,5</td>
+            <td>3,5</td>
+            <td>36</td>
+            <td>23</td>
+            <td>delete</td>
+          </tr>
+        </table>
+      </div>
     </div>
   </body>
 </html>
