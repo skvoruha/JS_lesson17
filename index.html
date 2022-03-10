@@ -15,9 +15,10 @@
           name="name"
           class="margin-b"
           type="text"
-          placeholder="Навзание"
+          placeholder="Название"
         />
         <select class="margin-b" name="selectedClass">
+          <option value=" " selected disabled>Выберите вид</option>
           <option value="GrassPlant">Трава</option>
           <option value="Tree">Дерево</option>
           <option value="Animal">Животное</option>
@@ -35,17 +36,24 @@
           placeholder=" Возраст"
         />
         <!-- для травы -->
-        <div class="margin-b edible GrassPlant">
-          <span>Съёдобная</span><input type="checkbox" />
+        <div class="margin-b item GrassPlant">
+          <span>Съёдобная</span><input name="edible" type="checkbox" />
         </div>
-        <select class="margin-b GrassPlant" id="">
+        <select class="margin-b item GrassPlant" name="grasSize">
+          <option value=" " selected disabled>Высота травы</option>
           <option value="2-5">2-5м</option>
           <option value="1-2">1-2м</option>
           <option value="0.3-1">0.3-1м</option>
         </select>
         <!-- для дерева -->
-        <input type="number" class="margin-b Tree" />
-        <select class="margin-b Tree">
+        <input
+          name="height"
+          type="number"
+          class="margin-b item Tree"
+          placeholder="Высота дерева"
+        />
+        <select class="margin-b item Tree" name="сlassification">
+          <option value=" " selected disabled>Класификация дерева</option>
           <option value="Хвойные деревья">Хвойные деревья</option>
           <option value="Сосновые">Сосновые</option>
           <option value="Кипарисовые">Кипарисовые</option>
@@ -55,10 +63,12 @@
           <option value="Шелковица">Шелковица</option>
         </select>
         <!-- для животных -->
-        <div class="margin-b edible Tree">
-          <span>Доманее животное?</span><input type="checkbox" />
+        <div class="margin-b item Animal">
+          <span>Доманее животное?</span
+          ><input name="home" type="checkbox" name="home" />
         </div>
-        <select class="margin-b Tree">
+        <select class="margin-b item Animal" name="nutrition">
+          <option value=" " selected disabled>Тип питания</option>
           <option value="травоядное">травоядное</option>
           <option value="всеядное">всеядное</option>
           <option value="плтоядное">плтоядное</option>
@@ -66,8 +76,8 @@
         <button id="save" type="submit">Сохранить</button>
       </div>
       <div class="block">
-        <table class="table">
-          Трава
+        <table class="table table__GrassPlant">
+          <span>Трава</span>
           <tr>
             <th>Название</th>
             <th>Вид</th>
@@ -87,15 +97,36 @@
             <td>delete</td>
           </tr>
         </table>
-        <table class="table">
-          Дерево
+        <table class="table table__Tree">
+          <span>Дерево</span>
           <tr>
             <th>Название</th>
             <th>Вид</th>
             <th>Описание</th>
             <th>Возраст</th>
             <th>Высота</th>
-            <th>Структурв</th>
+            <th>Класификация дерева</th>
+            <th>Удалить</th>
+          </tr>
+          <tr>
+            <td>34,5</td>
+            <td>3,5</td>
+            <td>3,5</td>
+            <td>3,5</td>
+            <td>36</td>
+            <td>23</td>
+            <td>delete</td>
+          </tr>
+        </table>
+        <table class="table table__Animal">
+          <span>Животное</span>
+          <tr>
+            <th>Название</th>
+            <th>Вид</th>
+            <th>Описание</th>
+            <th>Возраст</th>
+            <th>Дом\Дикое</th>
+            <th>Питание</th>
             <th>Удалить</th>
           </tr>
           <tr>

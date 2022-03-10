@@ -1,9 +1,9 @@
 .block__flex {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   max-width: 20%;
   margin-right: 20px;
+  min-height: 250px;
 }
 .flex {
   display: flex;
