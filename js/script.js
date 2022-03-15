@@ -127,7 +127,10 @@ const fieldValues = (type) =>{
     }
     if (e.children[1]) {
       if (e.children[1].type === 'checkbox') {
-        currentСlass[e.children[1].name] = e.children[1].checked
+        if (e.children[1].checked) {
+          currentСlass[e.children[1].name] = 'Да'
+        }
+        currentСlass[e.children[1].name] = 'Нет'
       }
     }
     // проверка input с heighth
@@ -136,6 +139,26 @@ const fieldValues = (type) =>{
     }
 
   });
+
+
+  document.querySelectorAll('input').forEach(element => {
+    if (element.type === 'checkbox') {
+      element.checked = false
+    } else {
+     element.value = ''
+    }
+  });
+  document.querySelectorAll('select').forEach(element => {
+    element.value = element.options[0].value
+  });
+
+  let className = ['.GrassPlant', '.Tree', '.Animal']
+  for (let i = 0; i < 3; i++) {
+    let forClassName = document.querySelectorAll(className[i])
+    forClassName.forEach(element => {
+        element.style.display = 'none'
+    });
+  }
   // НУЖННО ЕЩЕ ОЧИСТИТЬ ПЕРЕМЕННЫЕ
   saveLocalstorage(currentСlass)
 }
@@ -159,8 +182,7 @@ const saveLocalstorage = (currentСlass) =>{
   // сохраняе в локал в формате json  infoObj
   localStorage.setItem('infoObj', JSON.stringify(infoObj));
 
-  // очищаем value
-  // headerInput.value = ''
+
   render()
 
 }
@@ -169,18 +191,33 @@ saveBtn.addEventListener('click', valid)
 
 const render =() =>{
 
+  tableGrassPlant = document.querySelector('.table__GrassPlant')
+  tableTree = document.querySelector('.table__Tree')
+  tableAnimal = document.querySelector('.table__Animal')
+
   // ЧТОБЫ СПИСКИ НЕ ВЫВОДИЛИ СОХРАНЕНЫЕ ДАННЫЕ
   // // ИХ НУЖНО ОПУСТОШИТЬ
 
-  for (let i = 1; i < tableGrassPlant.children[0].children.length; i++) {
-   tableGrassPlant.children[0].children[i].innerHTML = ''
-  }
-  for (let i = 1; i < tableTree.children[0].children.length; i++) {
-   tableTree.children[0].children[i].innerHTML = ''
-  }
-  for (let i = 1; i < tableAnimal.children[0].children.length; i++) {
-   tableAnimal.children[0].children[i].innerHTML = ''
-  }
+  const alltableGrassPlant = Array.from(tableGrassPlant.children[0].children)
+  const alltableTree = Array.from(tableTree.children[0].children)
+  const alltableAnimal = Array.from(tableAnimal.children[0].children)
+
+  alltableGrassPlant.forEach((element,index) => {
+    if (index > 0) {
+      element.remove()
+    }
+  });
+  alltableTree.forEach((element,index) => {
+    if (index > 0) {
+      element.remove()
+    }
+  });
+  alltableAnimal.forEach((element,index) => {
+    if (index > 0) {
+      element.remove()
+    }
+  });
+
 
 
   infoObj.forEach(e=>{
@@ -213,34 +250,25 @@ const render =() =>{
   allTrOnTable.forEach(element => {
       element.addEventListener('click', (e)=>{
         if (e.target.closest('.delete')) {
-
-          infoObj.forEach(function(e,index) {
-            let count = 0
-            let countTrue = 0
-            for (let key in e){
-              if (count < 4) {
-                if (element.children[count]) {
-                  if (e[key].trim() == element.children[count].textContent.trim()) {
-                    countTrue++
-                  }
-                }
-
-              }
-              count++
-            }
-            if (countTrue == 4) {
-              console.log(e);
-              console.log(index);
-              infoObj.splice(index,1)
+          // e.path[1].children[0].textContent
+          let elemIndex
+          infoObj.forEach(function(elem,index) {
+            // ПРОВЕРКА ТАКАЯ ЕСЛИ ИМЯ И ОПИСАИЕ СОВПАДАЮТ ТО ЗАПИСЫВАЕМ ИНДЕС ЭЛЕМЕНТА
+            if ((e.path[1].children[0].textContent.trim() === elem.name.trim() &&
+             e.path[1].children[2].textContent.trim() === elem.description.trim()) ) {
+              elemIndex = index
             }
 
-
-            // Опусташаем Localsorage для того чтобы убрать удалённый элемент
-            localStorage.removeItem('infoObj')
-            //сохраняем новые данные в localStorage
-            localStorage.setItem('infoObj', JSON.stringify(infoObj));
-            render()
           });
+          console.log(elemIndex);
+          infoObj.splice(elemIndex,1)
+          // елси имя совпадает записываем индекс
+
+          // Опусташаем Localsorage для того чтобы убрать удалённый элемент
+          localStorage.removeItem('infoObj')
+          //сохраняем новые данные в localStorage
+          localStorage.setItem('infoObj', JSON.stringify(infoObj));
+          render()
           // минус один для того чтобы не считать delete
 
         }
